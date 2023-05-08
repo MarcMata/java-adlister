@@ -25,8 +25,10 @@ public class WelcomeServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String username = req.getParameter("username");
+        String email = req.getParameter("email");
         resp.setContentType("text/html");
         PrintWriter  out = resp.getWriter();
         out.println("<h2>Welcome, " + username + "!</h1>");
+        out.println("<h3>Your email is " + email + ".</h3>");
     }
 }
