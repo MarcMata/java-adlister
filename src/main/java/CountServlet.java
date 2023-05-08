@@ -16,7 +16,8 @@ public class CountServlet extends HttpServlet {
         String reset = req.getParameter("reset");
         resp.setContentType("text/html");
         PrintWriter out = resp.getWriter();
-        if(reset != null) {
+        String resetConfirmed = "reset";
+        if(Objects.equals(reset, resetConfirmed)) {
             out.println("<h3>Count reset!</h3>");
             out.println("<button><a href='/count'>Back to count</a></button>");
             count = 0;

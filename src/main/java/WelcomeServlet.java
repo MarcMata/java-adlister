@@ -24,9 +24,21 @@ public class WelcomeServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String username = req.getParameter("username");
+        String firstName = req.getParameter("firstName");
+        String lastName = req.getParameter("lastName");
+        String userName = req.getParameter("username");
+        String phoneNumber = req.getParameter("phone");
+        String address = req.getParameter("address");
+        String city = req.getParameter("city");
+        String state = req.getParameter("state");
+        String zip = req.getParameter("zip");
         resp.setContentType("text/html");
         PrintWriter  out = resp.getWriter();
-        out.println("<h2>Welcome, " + username + "!</h1>");
+        out.println("<h2>Welcome, " + firstName + ' ' + lastName + "! Account created successfully</h1>");
+        out.println("<h3>Username: " + userName + "</h3>");
+        out.println("<h3>Phone Number: " + phoneNumber + "</h3>");
+        out.println("<h3>Address: " + address + ", " + city + ", " + state + " " + zip + "</h3>");
+        out.println("<h3>Thank you for signing up!</h3>");
+
     }
 }
