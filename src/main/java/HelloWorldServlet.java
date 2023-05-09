@@ -8,5 +8,11 @@ import java.io.IOException;
 public class HelloWorldServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.getWriter().println("<h1>Hello, World!</h1>");
+@WebServlet(name = "HelloWorldServlet",urlPatterns = "/hello")
+public class HelloWorldServlet extends HttpServlet {
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse res) throws IOException {
+        res.setContentType("text/html");
+        res.getWriter().println("<h1>Hello, World!</h1>");
     }
 }
