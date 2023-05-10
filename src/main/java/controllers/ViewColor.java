@@ -11,14 +11,9 @@ import java.io.IOException;
 public class ViewColor extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String color = req.getParameter("color");
+        req.setAttribute("color", color);
         req.getRequestDispatcher("viewcolor.jsp").forward(req,resp);
     }
 
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String color = req.getParameter("color-picker");
-        System.out.println(color);
-        req.setAttribute("color", color);
-        req.getRequestDispatcher("viewcolor.jsp").forward(req, resp);
-    }
 }

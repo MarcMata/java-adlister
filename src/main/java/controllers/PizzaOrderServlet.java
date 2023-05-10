@@ -19,17 +19,19 @@ public class PizzaOrderServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String size = req.getParameter("size");
         String crust = req.getParameter("crust");
         String sauce = req.getParameter("sauce-type");
         String toppings = req.getParameter("toppings");
         String address = req.getParameter("address");
 
+        System.out.println(size);
         System.out.println(crust);
         System.out.println(sauce);
         System.out.println(toppings);
         System.out.println(address);
 
-        Pizza customerPizza = new Pizza(crust, sauce, toppings, address);
+        Pizza customerPizza = new Pizza(size, crust, sauce, toppings, address);
 
         req.setAttribute("customerPizza", customerPizza);
         req.getRequestDispatcher("pizza.jsp").forward(req, resp);

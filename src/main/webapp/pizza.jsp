@@ -8,6 +8,12 @@
 <jsp:include page="partials/navbar.jsp" />
 <h1>Order the Za</h1>
     <form action="/pizza-order" method="POST">
+        <label for="size">Select your sauce: </label>
+        <select name="size" id="size">
+            <option value="small">small</option>
+            <option value="med">med</option>
+            <option value="large">large</option>
+        </select>
         <label for="crust">Select your crust type: </label>
         <select name="crust" id="crust">
             <option value="normal">Normal</option>

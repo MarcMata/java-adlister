@@ -13,7 +13,6 @@ public class YouLoseServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setAttribute("didWin", false);
         req.getRequestDispatcher("win-lose.jsp").forward(req,resp);
-        String url = "/incorrect";
 
     }
 

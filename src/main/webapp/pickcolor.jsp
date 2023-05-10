@@ -12,7 +12,7 @@
 </head>
 <body>
 
-    <form action="/viewcolor" method="POST">
+    <form action="/pick-color" method="POST">
         <label for="color-picker">Select a color for your background: </label>
         <input type="text" name="color-picker" id="color-picker">
     </form>
