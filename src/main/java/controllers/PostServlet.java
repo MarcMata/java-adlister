@@ -1,6 +1,7 @@
 package controllers;
 
 import models.Post;
+import models.UserPosts;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,6 +15,8 @@ public class PostServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        Post[] posts = UserPosts.generatePosts();
+        req.setAttribute("posts", posts);
         req.getRequestDispatcher("/blog/createPost.jsp").forward(req, resp);
     }
 

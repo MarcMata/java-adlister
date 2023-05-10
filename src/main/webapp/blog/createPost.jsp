@@ -20,6 +20,11 @@
     <h3 id="title">${post.title}</h3>
     <p>${post.body}</p>
   </c:if>
+  <c:forEach items="${posts}" var="post">
+    <h2>${post.title}</h2>
+    <p>${post.body}</p>
+    <p>${post.user.username}</p>
+    </c:forEach>
 </div>
 
 </body>
