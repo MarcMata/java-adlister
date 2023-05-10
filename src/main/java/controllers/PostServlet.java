@@ -1,5 +1,7 @@
 package controllers;
 
+import models.Post;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,7 +20,9 @@ public class PostServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String post = req.getParameter("post");
-        req.setAttribute("post", post);
+        String title = req.getParameter("title");
+        Post submittedPost = new Post(title,post);
+        req.setAttribute("post", submittedPost);
         req.getRequestDispatcher("/blog/createPost.jsp").forward(req,resp);
     }
 }
