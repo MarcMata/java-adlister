@@ -21,7 +21,8 @@ public class PostServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String post = req.getParameter("post");
         String title = req.getParameter("title");
-        Post submittedPost = new Post(title,post);
+        String[] topics = req.getParameterValues("topic");
+        Post submittedPost = new Post(title,post, topics);
         req.setAttribute("post", submittedPost);
         req.getRequestDispatcher("/blog/createPost.jsp").forward(req,resp);
     }
