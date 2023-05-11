@@ -1,35 +1,38 @@
 package models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.io.Serializable;
 
 public class Quote implements Serializable {
-    private int id;
-    private String quote;
+    private Long id;
+    private String content;
+    @JsonIgnore
     private String author;
 
-    public Quote(int id, String quote, String author) {
+    public Quote(Long id, String quote, String author) {
         this.id = id;
-        this.quote = quote;
+        this.content = quote;
         this.author = author;
     }
 
     public Quote() {
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public String getQuote() {
-        return quote;
+    public String getContent() {
+        return content;
     }
 
-    public void setQuote(String quote) {
-        this.quote = quote;
+    public void setContent(String content) {
+        this.content = content;
     }
 
     public String getAuthor() {
