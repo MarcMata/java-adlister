@@ -9,20 +9,24 @@ import java.io.IOException;
 @WebServlet(name = "LoginServlet", urlPatterns = "/login")
 public class LoginServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("/login.jsp").forward(request, response);
+        HttpSession session = request.getSession();
+        if (session.getAttribute("user") != null) {
+            response.sendRedirect("/profile");
+        } else {
+            request.getRequestDispatcher("/login.jsp").forward(request, response);
+        }
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        HttpSession session = request.getSession();
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         boolean validAttempt = username.equals("admin") && password.equals("password");
-        System.out.println(validAttempt);
-
 
         if (validAttempt) {
-            HttpSession session = request.getSession();
-            session.setAttribute("isLoggedIn", true);
             session.setAttribute("user",username);
+            session.setAttribute("isAdmin", true);
+            System.out.println("User " + username + " has logged in.");
             response.sendRedirect("/profile");
         } else {
             response.sendRedirect("/login");
