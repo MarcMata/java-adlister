@@ -37,6 +37,5 @@
   </div>
 </c:forEach>
 
-
 </body>
 </html>

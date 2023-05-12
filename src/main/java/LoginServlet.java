@@ -9,22 +9,40 @@ import java.io.IOException;
 @WebServlet(name = "LoginServlet", urlPatterns = "/login")
 public class LoginServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
         request.getRequestDispatcher("/login.jsp").forward(request, response);
         HttpSession session = request.getSession();
         String language = (String) session.getAttribute("language");
         System.out.println(language);
+
+        HttpSession session = request.getSession();
+        if (session.getAttribute("user") != null) {
+            response.sendRedirect("/profile");
+        } else {
+            request.getRequestDispatcher("/login.jsp").forward(request, response);
+        }
+
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         HttpSession session = request.getSession();
         String username = request.getParameter("username");
         String password = request.getParameter("password");
+
         boolean validAttempt = username.equals("admin") && password.equals("password") || username.equals("jason") && password.equals("password");
 
 
         if (validAttempt) {
             session.setAttribute("username",username);
             session.removeAttribute("language");
+
+        boolean validAttempt = username.equals("admin") && password.equals("password");
+
+        if (validAttempt) {
+            session.setAttribute("user",username);
+            session.setAttribute("isAdmin", true);
+            System.out.println("User " + username + " has logged in.");
+          
             response.sendRedirect("/profile");
         } else {
             response.sendRedirect("/login");
