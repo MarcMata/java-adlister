@@ -18,8 +18,13 @@
     <jsp:include page="partials/navbar.jsp" />
 
     <div class="container">
+
+        <h1>Welcome to your profile ${username}</h1>
+        <p>Your language preference is ${language}</p>
+
         <h1>Viewing your profile Mr.${user}.</h1>
         <button><a href="logout">Logout</a></button>
+
     </div>
 
 </body>

@@ -11,6 +11,11 @@ import java.util.Objects;
 public class ViewProfileServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
+
+        String username = (String) session.getAttribute("username");
+        System.out.println(username + " just logged in.");
+        request.getRequestDispatcher("/profile.jsp").forward(request, response);
+
         String user = (String) session.getAttribute("user");
 //        Boolean isLoggedIn = session.getAttribute("isLoggedIn") != null;
         if (user == null){
@@ -19,5 +24,6 @@ public class ViewProfileServlet extends HttpServlet {
 //            request.setAttribute("user", user); <-- don't need this extra setAttribute
             request.getRequestDispatcher("/profile.jsp").forward(request, response);
         }
+
     }
 }

@@ -20,7 +20,7 @@
         </div>
     </c:forEach>
 </div>
-  
+
     <title>Ads</title>
 </head>
 <body>
@@ -36,6 +36,6 @@
     <p>User id:${ad.userId}</p>
   </div>
 </c:forEach>
-  
+
 </body>
 </html>
