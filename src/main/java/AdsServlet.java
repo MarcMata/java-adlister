@@ -10,13 +10,11 @@ import java.util.List;
 public class AdsServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+//        Ads adsDao = DaoFactory.getAdsDao();
+//        List<Ad> ads = adsDao.all();
+
         List<Ad> ads = DaoFactory.getAdsDao().all();
         req.setAttribute("ads", ads);
-        req.getRequestDispatcher("/ads/ads.jsp").forward(req, resp);
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+        req.getRequestDispatcher("/ads/index.jsp").forward(req, resp);
     }
 }
