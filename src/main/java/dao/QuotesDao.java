@@ -16,7 +16,7 @@ public class QuotesDao implements Quotes{
         try{
             DriverManager.registerDriver(new Driver());
             this.connection = DriverManager.getConnection(
-                    Config.getURL(),
+                    Config.getUrl(),
                     Config.getUsername(),
                     Config.getPassword()
             );

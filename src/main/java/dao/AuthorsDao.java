@@ -17,7 +17,7 @@ public class AuthorsDao implements Authors{
         try {
             DriverManager.registerDriver(new Driver());
             this.connection = DriverManager.getConnection(
-                    Config.getURL(),
+                    Config.getUrl(),
                     Config.getUsername(),
                     Config.getPassword()
             );
