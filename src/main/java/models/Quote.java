@@ -1,13 +1,11 @@
 package models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.io.Serializable;
 
 public class Quote implements Serializable {
     private Long id;
     private String content;
-    @JsonIgnore
     private String author;
 
     public Quote(Long id, String quote, String author) {
