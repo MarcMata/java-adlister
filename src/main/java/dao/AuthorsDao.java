@@ -2,7 +2,7 @@ package dao;
 
 import com.mysql.cj.jdbc.Driver;
 import models.Author;
-import controllers.Access;
+import config.Config;
 
 
 import java.sql.*;
@@ -17,9 +17,9 @@ public class AuthorsDao implements Authors{
         try {
             DriverManager.registerDriver(new Driver());
             this.connection = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/codeup_test_db?allowPublicKeyRetrieval=true&useSSL=false",
-                    "root",
-                    Access.getPass()
+                    Config.getURL(),
+                    Config.getUsername(),
+                    Config.getPassword()
             );
         } catch(SQLException sqlx){
             throw new RuntimeException("Error connecting to the database", sqlx);

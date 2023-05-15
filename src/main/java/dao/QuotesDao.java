@@ -3,7 +3,7 @@ package dao;
 import com.mysql.cj.jdbc.Driver;
 import models.Author;
 import models.Quote;
-import controllers.Access;
+import config.Config;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -16,9 +16,9 @@ public class QuotesDao implements Quotes{
         try{
             DriverManager.registerDriver(new Driver());
             this.connection = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/codeup_test_db?allowPublicKeyRetrieval=true&useSSL=false",
-                    "root",
-                    Access.getPass()
+                    Config.getURL(),
+                    Config.getUsername(),
+                    Config.getPassword()
             );
         } catch (SQLException e) {
             throw new RuntimeException(e);
