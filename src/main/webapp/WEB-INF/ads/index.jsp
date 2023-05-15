@@ -17,6 +17,7 @@
             <h2>${ad.title}</h2>
             <p>${ad.description}</p>
             <p>${ad.user.username}</p>
+            <p></p>
         </div>
     </c:forEach>
 </div>
